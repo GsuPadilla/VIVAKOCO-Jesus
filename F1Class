@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Hola </h1>
+    <h2> Como estas?</h2>
+    <h3> Que dulces colombianos les gustaria probar?</h3>
+    <h4> Tenemos dulces Colombianos como Chocolatinas Jet,entre otros</h4>
+    <h5> Tambien tenemos atracciones como el cañon del chicamocha</h5>
+    <hr>
+    <h6> Mi juego favorito es el Genshin Impact</h6>
+    <P> Tambien me gustan algunos juegos <strong>Triple A como:</strong>
+    <ol>
+     <li>Death Stranding</li>
+     <li>Resident Evil</li>
+     <li>Pokemon</li>
+     <li>Genshin Impact</li>
+     <li>CyberPunk 2077</li>
+     <li>The legend of Zelda</li>
+    </ol>
+    <p><em>Un videojuego AAA es una clasificación informal utilizada para los videojuegos producidos y distribuidos por una distribuidora importante o editor importante, típicamente 
+    teniendo marketing y desarrollo de alto presupuesto.</em></p>
+</body>
+</html>
+
+<hr>
+    <h1>Somos VIVAKOCO!</h1>
+    <h2><p>Hacemos parte de un grupo de voluntarios, para poder enseñar clases de
+        Inteligencia Artificial y Cultura Coreana Somos Ángela, Areum, Hwang
+    </h2>
+    <h3>Mi Nombre es Jesus Padilla, y estoy muy feliz de recibir esta oportunidad por parte de mis Profesores, donde he aprendido muchas tecnicas de programación
+        Y tambien mucho sobre la cultura Coreana. 
+    </h3>
+    <H4>En la clase de hoy aprendimos a escribir titulos, y el nivel de fuerza o impacto que tienen, desde H1, hata H6 que
+        corresponden a metodos para escribir titulos dentro de nuetra pagina web.
+    </H4>
+    <h5>Tambien aprendimos metodos para escribir nuestro textos como hacer uso de "/p", 
+
+    </h5>

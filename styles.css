@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #84b6f4;
+}
+
+header {
+    background-color: #4d82bc;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+#character-list {
+    width: 25%;
+    background-color: #c4dafa;
+    padding: 1rem;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.character-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.character-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.character-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+#main-content {
+    flex: 1;
+    padding: 1rem;
+    position: relative;
+}
+
+#genshin-map {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#character-info {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#character-info h2 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #2c3e50;
+}
+
+#character-info h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #16a085;
+}
+
+#character-info p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#character-info img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #4d82bc;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
