@@ -1,16 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Inicializar el mapa
-    var map = L.map('map').setView([0, 0], 2); // Configura la vista inicial del mapa
+    console.log('DOM fully loaded');
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    
-    // Datos de ejemplo para los personajes
     const characters = {
         Amber: {
             name: "Amber",
-            description: "Amber es una arquera de elemento Pyro en Genshin Impact. Conocida como la única Outrider de los Caballeros de Favonius, Amber siempre está lista para ayudar a los ciudadanos de Mondstadt con una sonrisa.",
+            title: "Outrider Caballero",
+            description: "Amber es una arquera de elemento Pyro en Genshin Impact.",
             image: "amber.jpg",
             element: "Pyro",
             weapon: "Arco",
@@ -18,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         Kaeya: {
             name: "Kaeya",
-            description: "Kaeya es un espadachín de elemento Cryo en Genshin Impact. Caballero de Favonius con una actitud despreocupada, Kaeya es conocido por su astucia y sus habilidades de espionaje.",
+            title: "Caballero de Favonius",
+            description: "Kaeya es un espadachín de elemento Cryo en Genshin Impact.",
             image: "kaeya.jpg",
             element: "Cryo",
             weapon: "Espada",
@@ -26,44 +22,66 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         Lisa: {
             name: "Lisa",
-            description: "Lisa es una maga de elemento Electro en Genshin Impact. Bibliotecaria de los Caballeros de Favonius, Lisa es una poderosa hechicera con un aire misterioso y una personalidad relajada.",
+            title: "Bruja de la Rosa",
+            description: "Lisa es una maga de elemento Electro en Genshin Impact.",
             image: "lisa.jpg",
             element: "Electro",
             weapon: "Catalizador",
             rarity: 4
         }
-        // Añade más personajes según sea necesario
     };
 
-    // Función para mostrar información del personaje
-    window.showCharacterInfo = function(characterName) {
-        var character = characters[characterName];
+    function showCharacterInfo(characterName) {
+        console.log('Mostrando información de:', characterName);
+        const character = characters[characterName];
         if (character) {
-            document.getElementById('map').style.display = 'none';
-            var characterInfo = document.getElementById('character-info');
-            characterInfo.style.display = 'block';
-            characterInfo.innerHTML = `
-                <h2>${character.name}</h2>
-                <img src="${character.image}" alt="${character.name}" style="width: 150px; height: 150px; border-radius: 50%;">
-                <p><strong>Elemento:</strong> ${character.element}</p>
-                <p><strong>Arma:</strong> ${character.weapon}</p>
-                <p><strong>Rareza:</strong> ${character.rarity} ★</p>
-                <p>${character.description}</p>
-                <button onclick="showMap()" class="back-button">Volver al Mapa</button>
-            `;
+            const characterInfoElement = document.getElementById('character-info');
+            const mapElement = document.getElementById('genshin-map');
+            
+            if (characterInfoElement && mapElement) {
+                mapElement.style.display = 'none';
+                characterInfoElement.style.display = 'block';
+                characterInfoElement.innerHTML = `
+                    <h2>${character.name}</h2>
+                    <hr>
+                    <h3>${character.title}</h3>
+                    <p>${character.description}</p>
+                    <p><strong>Elemento:</strong> ${character.element}</p>
+                    <p><strong>Arma:</strong> ${character.weapon}</p>
+                    <p><strong>Rareza:</strong> ${character.rarity} ★</p>
+                    <img src="${character.image}" alt="${character.name}">
+                    <br>
+                    <button onclick="showMap()">Volver al Mapa</button>
+                `;
+                console.log('Información del personaje actualizada');
+            } else {
+                console.error('No se encontraron los elementos necesarios en el DOM');
+            }
+        } else {
+            console.error('No se encontró información para el personaje:', characterName);
+        }
+    }
+
+    window.showMap = function() {
+        console.log('Mostrando mapa');
+        const characterInfoElement = document.getElementById('character-info');
+        const mapElement = document.getElementById('genshin-map');
+        
+        if (characterInfoElement && mapElement) {
+            characterInfoElement.style.display = 'none';
+            mapElement.style.display = 'block';
+        } else {
+            console.error('No se encontraron los elementos necesarios en el DOM');
         }
     };
 
-    // Función para mostrar el mapa y ocultar la información del personaje
-    window.showMap = function() {
-        document.getElementById('character-info').style.display = 'none';
-        document.getElementById('map').style.display = 'block';
-    };
-
-    // Añadir event listeners a los botones de personajes
-    document.querySelectorAll('.character-box').forEach(box => {
+    const characterBoxes = document.querySelectorAll('.character-box');
+    console.log('Número de character-boxes encontrados:', characterBoxes.length);
+    
+    characterBoxes.forEach(box => {
         box.addEventListener('click', function() {
             const characterName = this.querySelector('p').textContent;
+            console.log('Clic en personaje:', characterName);
             showCharacterInfo(characterName);
         });
     });
