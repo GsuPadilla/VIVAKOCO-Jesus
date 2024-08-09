@@ -1,5 +1,16 @@
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+.satisfy-regular {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Satisfy;
     margin: 0;
     padding: 0;
     display: flex;
@@ -24,14 +35,22 @@ h1 {
 main {
     display: flex;
     flex: 1;
+    height: calc(100vh - 120px); /* Subtract header and footer height */
 }
 
 #character-list {
     width: 25%;
     background-color: #c4dafa;
     padding: 1rem;
-    overflow-y: auto;
+    overflow-y: auto; /* Enable vertical scrolling */
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    max-height: calc(100vh - 120px); /* Ensure it does not exceed the viewport height */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#character-list::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
 }
 
 .character-box {
@@ -69,7 +88,39 @@ main {
     object-fit: cover;
     border-radius: 8px;
 }
+.floating-menu {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #c4dafa;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
 
+.menu-item {
+    width: 40px;
+    height: 40px;
+    background-color: #4d82bc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #ba55d3;
+    transform: scale(1.1);
+}
+
+.menu-item img {
+    width: 24px;
+    height: 24px;
+}
 #character-info {
     position: absolute;
     top: 1rem;
@@ -81,7 +132,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: auto; /* Enable vertical scrolling for character info */
 }
 
 #character-info h2 {
@@ -113,3 +164,4 @@ footer {
     padding: 1rem;
     margin-top: auto;
 }
+
